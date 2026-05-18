@@ -27,7 +27,7 @@ export default function Home() {
             FULL-STACK DEVELOPER
           </span>
 
-          <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight mb-6 leading-none animate-fade-in-up">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight mb-6 leading-none animate-fade-in-up">
             Crafting digital <span style={{ color: 'color-mix(in oklab, #6f7178 50%, transparent)' }}>experiences</span> that scale.
           </h1>
 
@@ -62,7 +62,7 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-24 bg-white relative">
         <div className="max-w-3xl mx-auto px-6 text-center space-y-6">
-          <h2 className="text-4xl font-bold tracking-tight">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">About Me</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
             Passionate about creating efficient, scalable, and user-friendly web applications. I thrive on solving complex problems and turning ideas into reality.
           </p>
@@ -81,7 +81,7 @@ export default function Home() {
       <section id="languages" className="py-24 bg-[#F8F9FA] relative">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold tracking-tight mb-2">Languages & Technologies</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Languages & Technologies</h2>
             <p className="text-gray-600">The tools I use to bring ideas to life.</p>
           </div>
 
@@ -139,7 +139,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-4xl font-bold tracking-tight mb-2">Selected Work</h2>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Selected Work</h2>
               <p className="text-gray-600">A curation of my best full-stack projects.</p>
             </div>
           </div>
@@ -222,20 +222,20 @@ export default function Home() {
       <section id="experience" className="py-24 bg-[#F8F9FA] relative">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold tracking-tight mb-2">Work Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Work Experience</h2>
             <p className="text-gray-600">My professional journey.</p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-8">
             {/* Job 1 */}
             <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer">
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div>
                   <h3 className="text-xl font-bold">Full-Stack Developer</h3>
                   <a href="https://www.logisticinfotech.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Logistic Infotech Pvt Ltd</a>
                   <p className="text-gray-500 text-sm mt-0.5">Rajkot, India</p>
                 </div>
-                <span className="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Current</span>
+                <span className="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full w-fit">Current</span>
               </div>
               <p className="text-gray-600 mt-3 text-sm">Working as a Full-Stack Developer on MERN stack projects. Started with a 6-month internship and continued as a full-time engineer.</p>
             </div>
@@ -247,19 +247,19 @@ export default function Home() {
       <section id="education" className="py-24 bg-white relative">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold tracking-tight mb-2">Education</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Education</h2>
             <p className="text-gray-600">My academic background.</p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-8">
             {/* Degree 1: MCA */}
             <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer">
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div>
                   <h3 className="text-xl font-bold">Master of Computer Applications (MCA)</h3>
                   <p className="text-gray-600">Department of Computer Science, Saurashtra University, Rajkot</p>
                 </div>
-                <span className="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2021 - 2023</span>
+                <span className="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full w-fit">2021 - 2023</span>
               </div>
               <p className="text-gray-500 mt-2 text-sm">Focused on advanced computer science subjects and software development.</p>
               <p className="text-yellow-600 font-semibold text-sm mt-1 flex items-center space-x-1">
@@ -270,12 +270,12 @@ export default function Home() {
 
             {/* Degree 2: BCA */}
             <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer">
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div>
                   <h3 className="text-xl font-bold">Bachelor of Computer Applications (BCA)</h3>
                   <p className="text-gray-600">Kanasagara College, Saurashtra University</p>
                 </div>
-                <span className="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">2018 - 2021</span>
+                <span className="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit">2018 - 2021</span>
               </div>
               <p className="text-gray-500 mt-2 text-sm">Laid the foundation for software development and web technologies.</p>
             </div>
