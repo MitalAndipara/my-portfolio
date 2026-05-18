@@ -14,9 +14,9 @@ export default function Home() {
             <a href="#projects" className="hover:text-black transition-colors">Projects</a>
             <a href="#experience" className="hover:text-black transition-colors">Experience</a>
           </nav>
-          <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all hover:scale-105 shadow-sm hover:shadow-md">
+          <a href="#contact" className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all hover:scale-105 shadow-sm hover:shadow-md">
             Let's talk
-          </button>
+          </a>
         </div>
       </header>
 
@@ -36,13 +36,13 @@ export default function Home() {
           </p>
 
           <div className="flex space-x-4 animate-fade-in-up delay-200">
-            <button className="bg-black text-white px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-gray-800 transition-all hover:scale-105 font-medium shadow-md hover:shadow-lg group">
+            <a href="#projects" className="bg-black text-white px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-gray-800 transition-all hover:scale-105 font-medium shadow-md hover:shadow-lg group">
               <span>View my work</span>
               <span className="transition-transform group-hover:translate-x-1">→</span>
-            </button>
-            <button className="bg-white border border-gray-300 text-black px-6 py-3 rounded-full hover:bg-gray-50 transition-all hover:scale-105 font-medium shadow-sm hover:shadow-md">
+            </a>
+            <a href="#contact" className="bg-white border border-gray-300 text-black px-6 py-3 rounded-full hover:bg-gray-50 transition-all hover:scale-105 font-medium shadow-sm hover:shadow-md flex items-center justify-center">
               Contact me
-            </button>
+            </a>
           </div>
         </div>
 
@@ -144,74 +144,71 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 gap-16">
             {/* Project 1: Digital Artist */}
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
-              <div className="bg-gradient-to-br from-[#8A9FE7]/10 to-[#D4DDF8]/10 h-56 rounded-2xl mb-6 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500">
-                <span className="font-medium text-gray-600">[ Digital Artist ]</span>
-              </div>
-              <div className="space-y-3">
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+              <div className="space-y-4 flex-1">
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">React.js</span>
-                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full">Next.js</span>
-                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-2.5 py-0.5 rounded-full">Node.js</span>
-                  <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-2.5 py-0.5 rounded-full">Blockchain</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">React.js</span>
+                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Next.js</span>
+                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Node.js</span>
+                  <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Blockchain</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <h3 className="text-2xl font-bold group-hover:text-blue-600 transition-colors">Digital Artist</h3>
-                  <span className="text-sm text-gray-500">12/2023</span>
-                </div>
+                <h3 className="text-3xl font-bold group-hover:text-blue-600 transition-colors">Digital Artist</h3>
                 <p className="text-sm text-gray-500 font-medium">Role: Frontend Developer</p>
-                <p className="text-gray-600 leading-relaxed text-sm">Developed a platform allowing artists to log in, upload artwork for sale, and participate in blockchain-secured auctions. Implemented features enabling business users to create events, invite artists, and manage notifications for auctions and events.</p>
+                <p className="text-gray-600 leading-relaxed">Developed a platform allowing artists to log in, upload artwork for sale, and participate in blockchain-secured auctions. Implemented features enabling business users to create events, invite artists, and manage notifications for auctions and events.</p>
+              </div>
+              <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center bg-gray-50 group-hover:scale-[1.02] transition-transform duration-500 flex-shrink-0 shadow-inner">
+                <img src="/digital_artist.png" alt="Digital Artist" className="w-full h-full object-cover" />
               </div>
             </div>
 
             {/* Project 2: Checkypin */}
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
-              <div className="bg-gradient-to-br from-[#8A9FE7]/10 to-[#D4DDF8]/10 h-56 rounded-2xl mb-6 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500">
-                <span className="font-medium text-gray-600">[ Checkypin ]</span>
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+              <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center bg-gray-50 group-hover:scale-[1.02] transition-transform duration-500 flex-shrink-0 shadow-inner">
+                <img src="/checkypin.png" alt="Checkypin" className="w-full h-full object-cover" />
               </div>
-              <div className="space-y-3">
+              <div className="space-y-4 flex-1">
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">ReactNative</span>
-                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-2.5 py-0.5 rounded-full">Sails js</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">ReactNative</span>
+                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Sails js</span>
                 </div>
-                <h3 className="text-2xl font-bold group-hover:text-blue-600 transition-colors">Checkypin</h3>
+                <h3 className="text-3xl font-bold group-hover:text-blue-600 transition-colors">Checkypin</h3>
                 <p className="text-sm text-gray-500 font-medium">Role: Backend Developer</p>
-                <p className="text-gray-600 leading-relaxed text-sm">Built a platform for businesses (restaurants, cafes) to manage branches, create posts, and engage customers. Users can check in to businesses, with automatic checkout if they move 20 meters away. Integrated real-time chat with branches, rewards for check-ins, and the ability for businesses to upload stories.</p>
+                <p className="text-gray-600 leading-relaxed">Built a platform for businesses (restaurants, cafes) to manage branches, create posts, and engage customers. Users can check in to businesses, with automatic checkout if they move 20 meters away. Integrated real-time chat with branches, rewards for check-ins, and the ability for businesses to upload stories.</p>
               </div>
             </div>
 
             {/* Project 3: Exclusio */}
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
-              <div className="bg-gradient-to-br from-[#8A9FE7]/10 to-[#D4DDF8]/10 h-56 rounded-2xl mb-6 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500">
-                <span className="font-medium text-gray-600">[ Exclusio ]</span>
-              </div>
-              <div className="space-y-3">
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+              <div className="space-y-4 flex-1">
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full">Next js</span>
-                  <span className="text-xs font-semibold text-yellow-600 bg-yellow-50 px-2.5 py-0.5 rounded-full">Python</span>
+                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Next js</span>
+                  <span className="text-xs font-semibold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">Python</span>
                 </div>
-                <h3 className="text-2xl font-bold group-hover:text-blue-600 transition-colors">Exclusio</h3>
+                <h3 className="text-3xl font-bold group-hover:text-blue-600 transition-colors">Exclusio</h3>
                 <p className="text-sm text-gray-500 font-medium">Role: Frontend Developer</p>
-                <p className="text-gray-600 leading-relaxed text-sm">Developed a content-sharing platform with post/story creation, chat, and pay-to-unlock media. Implemented subscription features for exclusive content access. Integrated an ads system for campaign creation and dynamic display across the platform.</p>
+                <p className="text-gray-600 leading-relaxed">Developed a content-sharing platform with post/story creation, chat, and pay-to-unlock media. Implemented subscription features for exclusive content access. Integrated an ads system for campaign creation and dynamic display across the platform.</p>
+              </div>
+              <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center bg-gray-50 group-hover:scale-[1.02] transition-transform duration-500 flex-shrink-0 shadow-inner">
+                <img src="/exclusio.png" alt="Exclusio" className="w-full h-full object-cover" />
               </div>
             </div>
 
             {/* Project 4: Uphony */}
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
-              <div className="bg-gradient-to-br from-[#8A9FE7]/10 to-[#D4DDF8]/10 h-56 rounded-2xl mb-6 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500">
-                <span className="font-medium text-gray-600">[ Uphony ]</span>
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+              <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center bg-gray-50 group-hover:scale-[1.02] transition-transform duration-500 flex-shrink-0 shadow-inner">
+                <img src="/uphony.png" alt="Uphony" className="w-full h-full object-cover" />
               </div>
-              <div className="space-y-3">
+              <div className="space-y-4 flex-1">
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full">Next js</span>
-                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-2.5 py-0.5 rounded-full">Sails js</span>
-                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">ReactNative</span>
+                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Next js</span>
+                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Sails js</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">ReactNative</span>
                 </div>
-                <h3 className="text-2xl font-bold group-hover:text-blue-600 transition-colors">Uphony</h3>
+                <h3 className="text-3xl font-bold group-hover:text-blue-600 transition-colors">Uphony</h3>
                 <p className="text-sm text-gray-500 font-medium">Role: Backend & Frontend Developer</p>
-                <p className="text-gray-600 leading-relaxed text-sm">Built a full-stack music streaming platform (web & app) with features like music upload/download, playlists, purchases, real-time chat, and social features. Integrated secure payment gateway and implemented real-time messaging.</p>
+                <p className="text-gray-600 leading-relaxed">Built a full-stack music streaming platform (web & app) with features like music upload/download, playlists, purchases, real-time chat, and social features. Integrated secure payment gateway and implemented real-time messaging.</p>
               </div>
             </div>
           </div>
@@ -259,7 +256,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold">Master of Computer Applications (MCA)</h3>
                   <p className="text-gray-600">Department of Computer Science, Saurashtra University, Rajkot</p>
                 </div>
-                <span className="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full w-fit">2021 - 2023</span>
+                <span className="text-sm font-semibold text-gray-600 bg-gray-50 px-3 py-1 rounded-full w-fit">2021 - 2023</span>
               </div>
               <p className="text-gray-500 mt-2 text-sm">Focused on advanced computer science subjects and software development.</p>
               <p className="text-yellow-600 font-semibold text-sm mt-1 flex items-center space-x-1">
@@ -284,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0F172A] text-white py-16 relative">
+      <footer id="contact" className="bg-[#0F172A] text-white py-16 relative">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
           <div>
             <div className="text-2xl font-bold tracking-tighter mb-2">MITAL.</div>
@@ -293,9 +290,9 @@ export default function Home() {
           <div className="flex space-x-8 text-sm text-gray-400">
             <a href="https://www.linkedin.com/in/mital-andipara-07877a236" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           </div>
-          <button className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-all hover:scale-105 shadow-md">
+          <a href="mailto:mital.andipara@example.com" className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-all hover:scale-105 shadow-md">
             Get in touch
-          </button>
+          </a>
         </div>
       </footer>
     </div>
