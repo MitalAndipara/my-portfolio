@@ -1,4 +1,24 @@
+"use client";
+
+import { useEffect } from "react";
+
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".reveal").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-[#0F172A] font-sans overflow-hidden relative">
       {/* Dynamic Background Glows */}
@@ -22,6 +42,18 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="max-w-6xl mx-auto px-6 py-24 md:py-32 flex flex-col items-start text-left relative">
+        {/* Floating Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-red-400 rounded-full animate-drift opacity-80"></div>
+          <div className="absolute top-1/3 left-2/3 w-3 h-3 bg-yellow-400 rounded-full animate-drift-reverse opacity-70"></div>
+          <div className="absolute top-2/3 left-1/3 w-2 h-2 bg-purple-400 rounded-full animate-drift delay-300 opacity-90"></div>
+          <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-blue-400 rounded-full animate-drift-reverse delay-100 opacity-60"></div>
+          <div className="absolute top-3/4 left-3/4 w-2 h-2 bg-green-400 rounded-full animate-drift delay-500 opacity-80"></div>
+          <div className="absolute top-1/5 left-4/5 w-3 h-3 bg-pink-400 rounded-full animate-drift-reverse delay-200 opacity-70"></div>
+          <div className="absolute top-1/10 left-1/10 w-2 h-2 bg-indigo-400 rounded-full animate-drift opacity-70"></div>
+          <div className="absolute top-4/5 left-1/5 w-2 h-2 bg-orange-400 rounded-full animate-drift-reverse opacity-80"></div>
+        </div>
+
         <div className="max-w-4xl relative z-10">
           <span className="bg-white border border-gray-200 text-gray-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 inline-block shadow-sm animate-fade-in">
             FULL-STACK DEVELOPER
@@ -47,8 +79,15 @@ export default function Home() {
         </div>
 
         {/* Floating geometric shape */}
-        <div className="absolute right-10 top-20 hidden lg:block animate-float opacity-70">
-          <div className="w-20 h-20 bg-gradient-to-tr from-[#8A9FE7] to-[#D4DDF8] rounded-2xl blur-sm transform rotate-12"></div>
+        <div className="absolute right-10 top-20 hidden lg:block animate-drift opacity-80">
+          <div className="relative w-32 h-32">
+            {/* Glowing background blob */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#8A9FE7] to-[#D4DDF8] rounded-full blur-xl opacity-60"></div>
+            {/* Glassmorphic foreground shape */}
+            <div className="absolute inset-4 bg-white/20 backdrop-blur-md rounded-2xl border border-white/40 shadow-lg transform rotate-12 flex items-center justify-center">
+              <span className="text-sm font-bold text-[#0F172A]/70">{"</>"}</span>
+            </div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
@@ -60,7 +99,7 @@ export default function Home() {
       </main>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-white relative">
+      <section id="about" className="py-24 bg-white relative reveal">
         <div className="max-w-3xl mx-auto px-6 text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">About Me</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
@@ -78,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* Tech Stack / Languages Section */}
-      <section id="languages" className="py-24 bg-[#F8F9FA] relative">
+      <section id="languages" className="py-24 bg-[#F8F9FA] relative reveal">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Languages & Technologies</h2>
@@ -86,47 +125,47 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up hover:text-yellow-600 hover:border-yellow-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-float-slow hover:text-yellow-600 hover:border-yellow-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-yellow-100 rounded-full flex items-center justify-center text-xs font-bold text-yellow-600">JS</span>
               <span>JavaScript</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-100 hover:text-blue-600 hover:border-blue-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-drift-slow delay-100 hover:text-blue-600 hover:border-blue-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs font-bold text-blue-600">TS</span>
               <span>TypeScript</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-200 hover:text-green-600 hover:border-green-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-float-slow delay-200 hover:text-green-600 hover:border-green-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-xs font-bold text-green-600">Node</span>
               <span>Node.js</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-300 hover:text-blue-500 hover:border-blue-200 flex items-center space-x-2">
-              <span className="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center text-xs font-bold text-blue-500">At</span>
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-drift-slow delay-300 hover:text-blue-500 hover:border-blue-200 flex items-center space-x-2">
+              <span className="w-6 h-6 bg-blue rounded-full flex items-center justify-center text-xs font-bold text-blue-500">At</span>
               <span>React</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-400 hover:text-green-500 hover:border-green-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-float-slow delay-400 hover:text-green-500 hover:border-green-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center text-xs font-bold text-green-500">DB</span>
               <span>MongoDB</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-500 hover:text-orange-600 hover:border-orange-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-drift-slow delay-500 hover:text-orange-600 hover:border-orange-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-xs font-bold text-orange-600">Git</span>
               <span>Git</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-100 hover:text-black hover:border-gray-400 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-float-slow delay-100 hover:text-black hover:border-gray-400 flex items-center space-x-2">
               <span className="w-6 h-6 bg-black rounded-full flex items-center justify-center text-xs font-bold text-white">Nx</span>
               <span>Next.js</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-200 hover:text-red-600 hover:border-red-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-drift-slow delay-200 hover:text-red-600 hover:border-red-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-xs font-bold text-red-600">Nt</span>
               <span>NestJS</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-300 hover:text-gray-800 hover:border-gray-400 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-float-slow delay-300 hover:text-gray-800 hover:border-gray-400 flex items-center space-x-2">
               <span className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-xs font-bold text-gray-800">Ex</span>
               <span>Express.js</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-400 hover:text-blue-700 hover:border-blue-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-drift-slow delay-400 hover:text-blue-700 hover:border-blue-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs font-bold text-blue-600">SQL</span>
               <span>MySQL</span>
             </span>
-            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-fade-in-up delay-500 hover:text-sky-500 hover:border-sky-200 flex items-center space-x-2">
+            <span className="bg-white border border-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer animate-float-slow delay-500 hover:text-sky-500 hover:border-sky-200 flex items-center space-x-2">
               <span className="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center text-xs font-bold text-sky-600">TW</span>
               <span>Tailwind CSS</span>
             </span>
@@ -146,7 +185,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-16">
             {/* Project 1: Digital Artist */}
-            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center reveal hover-glow">
               <div className="space-y-4 flex-1">
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">React.js</span>
@@ -164,7 +203,7 @@ export default function Home() {
             </div>
 
             {/* Project 2: Checkypin */}
-            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center reveal hover-glow">
               <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center bg-gray-50 group-hover:scale-[1.02] transition-transform duration-500 flex-shrink-0 shadow-inner">
                 <img src="/checkypin.png" alt="Checkypin" className="w-full h-full object-cover" />
               </div>
@@ -180,7 +219,7 @@ export default function Home() {
             </div>
 
             {/* Project 3: Exclusio */}
-            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center reveal hover-glow">
               <div className="space-y-4 flex-1">
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Next js</span>
@@ -196,7 +235,7 @@ export default function Home() {
             </div>
 
             {/* Project 4: Uphony */}
-            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center">
+            <div className="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer flex flex-col md:flex-row gap-10 items-center reveal hover-glow">
               <div className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center bg-gray-50 group-hover:scale-[1.02] transition-transform duration-500 flex-shrink-0 shadow-inner">
                 <img src="/uphony.png" alt="Uphony" className="w-full h-full object-cover" />
               </div>
@@ -225,7 +264,7 @@ export default function Home() {
 
           <div className="max-w-3xl mx-auto space-y-8">
             {/* Job 1 */}
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer">
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer reveal hover-glow">
               <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div>
                   <h3 className="text-xl font-bold">Full-Stack Developer</h3>
@@ -250,7 +289,7 @@ export default function Home() {
 
           <div className="max-w-3xl mx-auto space-y-8">
             {/* Degree 1: MCA */}
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer">
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer reveal hover-glow">
               <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div>
                   <h3 className="text-xl font-bold">Master of Computer Applications (MCA)</h3>
@@ -266,7 +305,7 @@ export default function Home() {
             </div>
 
             {/* Degree 2: BCA */}
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer">
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all cursor-pointer reveal hover-glow">
               <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div>
                   <h3 className="text-xl font-bold">Bachelor of Computer Applications (BCA)</h3>
@@ -290,7 +329,7 @@ export default function Home() {
           <div className="flex space-x-8 text-sm text-gray-400">
             <a href="https://www.linkedin.com/in/mital-andipara-07877a236" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           </div>
-          <a href="mailto:mital.andipara@example.com" className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-all hover:scale-105 shadow-md">
+          <a href="mailto:mitalandipara09@gmail.com" className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-all hover:scale-105 shadow-md">
             Get in touch
           </a>
         </div>
